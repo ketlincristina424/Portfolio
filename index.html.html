@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ketlin C. Cicheleiro - Fisioterapeuta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* CAMADA DE FUNDO FIXA */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('Ketlin_C_C_2.jpeg') no-repeat center top;
+            background-size: cover;
+            background-position: center 20%;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #333;
+            background-color: #000;
+        }
+
+        /* HEADER */
+        header {
+            color: white;
+            padding: 150px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header h1 {
+            margin-bottom: 5px;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+        }
+
+        header p {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+        }
+
+        .header-socials {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-tag {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .social-tag:hover {
+            background: white;
+            color: #4b6cb7;
+            transform: translateY(-5px);
+        }
+
+        /* NAVEGAÇÃO */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 25px 15px;
+            background: transparent;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            background: white;
+            color: #4b6cb7;
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        nav a:hover {
+            background: #4b6cb7;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* SEÇÕES - GLASSMORPHISM */
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding-bottom: 50px;
+        }
+
+        section {
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.88); 
+            backdrop-filter: blur(10px);
+            margin: 25px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.96);
+        }
+
+        h2 { color: #2c7be5; border-bottom: 2px solid #e9efff; padding-bottom: 10px; }
+        h3, h4 { color: #4b6cb7; }
+
+        /* HABILIDADES */
+        .skills span {
+            display: inline-block;
+            background-color: #4b6cb7;
+            color: white;
+            padding: 8px 16px;
+            margin: 6px;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .skills span:hover {
+            background-color: #2c7be5;
+            transform: scale(1.05);
+        }
+
+        /* ESTILIZAÇÃO DOS FEEDBACKS */
+        .feedback-item {
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(75, 108, 183, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .feedback-item:last-child {
+            border-bottom: none;
+        }
+
+        .feedback-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+            font-style: italic;
+            margin: 0 0 15px 0;
+            position: relative;
+            padding-left: 20px;
+            border-left: 4px solid #2c7be5;
+        }
+
+        .feedback-author {
+            display: block;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #4b6cb7;
+            font-style: normal;
+            text-align: right;
+        }
+
+        .feedback-author span {
+            font-weight: normal;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .bg-overlay { background-attachment: scroll; background-position: center center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-overlay"></div>
+
+<header>
+    <h1>Ketlin Cristina Cichelero</h1>
+    <p>Fisioterapeuta Pediatra</p>
+    
+    <div class="header-socials">
+        <a href="https://wa.me/5547992444868" class="social-tag" title="WhatsApp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/ketlin.fisioterapia.ped/?hl=en" class="social-tag" title="Instagram" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="mailto:ketlincristina424@gmail.com" class="social-tag" title="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/ketlin-cichelero/" class="social-tag" title="LinkedIn" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
+</header>
+
+<nav id="navbar">
+    <a href="#sobre">Sobre</a>
+    <a href="#atuacao">Atuação</a>
+    <a href="#experiencia">Experiência</a>
+    <a href="#certificacoes">Certificações</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#blog">Caso Clínico</a>
+    <a href="#feedbacks">Feedbacks</a>
+</nav>
+
+<div class="container">
+
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Sou fisioterapeuta com foco em fisioterapia pediátrica, dedicada ao desenvolvimento motor infantil. 
+        Meu trabalho é baseado em uma abordagem individualizada, respeitando as necessidades de cada criança e envolvendo ativamente a família no processo terapêutico.
+        Busco constantemente atualização profissional para oferecer um atendimento humanizado, baseado em evidências e com resultados funcionais reais.</p>
+    </section>
+
+    <section id="atuacao">
+        <h2>Atuação</h2>
+        <h4>Fisioterapia Pediátrica</h4>
+        <p>Atuação no desenvolvimento motor infantil, com foco em atraso motor, alterações posturais e acompanhamento dos marcos do desenvolvimento.</p>
+        
+        <h4>Transtorno do Espectro Autista (TEA)</h4>
+        <p>Atuação no acompanhamento de crianças com TEA, com foco no desenvolvimento motor, organização sensorial e funcionalidade no dia a dia.</p>
+        
+        <h4>Estimulação Precoce</h4>
+        <p>Intervenção em bebês e crianças pequenas para prevenção e tratamento de atrasos no desenvolvimento neuropsicomotor.</p>
+        
+        <h4>Alterações na Marcha</h4>
+        <p>Avaliação e tratamento de padrões como marcha na ponta dos pés, assimetrias e dificuldades de equilíbrio.</p>
+        
+        <h4>Integração Sensorial</h4>
+        <p>Trabalho voltado à organização sensorial e melhora da resposta motora da criança ao ambiente.</p>
+        
+        <h4>Torcicolo Congênito e Assimetrias Cranianas</h4>
+        <p>Atuação na avaliação e tratamento de bebês com torcicolo muscular congênito e alterações cranianas.</p>
+    </section>
+
+    <section id="experiencia">
+        <h2>Experiência</h2>
+        <h3>Clinica Escola de Fisioterapia - 2025-2026</h3>
+        <ul>
+            <li>Atuei como estagiária na clinica escola de fisioterapia da UNISOCIESC, pelo período de 11 meses, com atendimentos supervisionados em pacientes pediátricos, ortopédicos e neurológicos.</li>
+        </ul>
+        <h3>Clínica de Fisioterapia e Ergonomia HEMA - 2025/2026</h3>
+        <ul>
+            <li>Atuei também como estagiária na clinica de fisioterapia HEMA, pelo período de 9 meses, atendendo pacientes ortopédicos, atletas e paratletas.</li>
+        </ul>
+    </section>
+
+    <section id="certificacoes">
+        <h2>Certificações</h2>
+        <ul>
+            <li>Bacharel em Fisioterapia - 2026</li>
+            <li>ABA no Tea - Aplicador ABA - 2026</li>
+            <li>Torcicolo congênito - 2026</li>
+            <li>Fisioterapia no transtorno do espectro autista (TEA) - 2026</li>
+            <li>Fisioterapia neonatal - 2023</li>
+            <li>Fisioterapia no desenvolvimento motor infantil - 2023</li>
+        </ul>
+    </section>
+
+    <section id="habilidades">
+        <h2>Habilidades</h2>
+        <div class="skills">
+            <span>Avaliação do Desenvolvimento Motor</span>
+            <span>Aplicadora ABA</span>
+            <span>Estimulação Precoce</span>
+            <span>Treino de Marcha</span>
+            <span>Assimetrias Cranianas</span>
+            <span>Torcicolo Congênito</span>
+        </div>
+    </section>
+
+    <section id="blog">
+        <h2>Caso Clínico</h2>
+        <h3>Paciente</h3>
+        <p>P.V.M.S, 9 anos.</p>
+        <h3>Condição</h3>
+        <p>Paciente cadeirante com alteração neurológica sem diagnóstico fechado, apresentando quadro de espasticidade acentuada, ausência de equilíbrio funcional, comprometimento da comunicação verbal, ausência de controle de tronco e deformidades congênitas nos pés.</p>
+        <h3>Tratamento</h3>
+        <p>Intervenção fisioterapêutica baseada em mudanças de decúbito, treino de controle postural e de tronco, estímulos de equilíbrio, treino de marcha com apoio e atividades de integração sensorial.</p>
+        <h3>Resultado</h3>
+        <p>Evolução no controle de tronco, melhora do equilíbrio e da locomoção com apoio, além de maior interação com estímulos sensoriais.</p>
+    </section>
+
+    <section id="feedbacks">
+        <h2>Feedbacks</h2>
+
+        <div class="feedback-item">
+            <blockquote class="feedback-text">
+                "Profissional dedicada e organizada, reconhecida pela pontualidade e pelo alto senso de responsabilidade. Destaca-se pela leveza e facilidade em criar vínculos no atendimento infantil, além de possuir excelente perfil colaborativo e uma busca contínua pela excelência clínica."
+            </blockquote>
+            <cite class="feedback-author">Andressa, <span>Preceptora</span></cite>
+        </div>
+
+        <div class="feedback-item">
+            <blockquote class="feedback-text">
+                "Tive uma experiência excelente no atendimento. Sempre muito atenciosa, paciente e profissional, demonstrando cuidado, dedicação, responsabilidade em cada detalhe e humanização em cada atendimento."
+            </blockquote>
+            <cite class="feedback-author">Jessica, <span>Paciente</span></cite>
+        </div>
+
+        <div class="feedback-item">
+            <blockquote class="feedback-text">
+                "Uma excelente profissional, e sabe enxergar além do seu trabalho, nos tratando com muito carinho e respeito!"
+            </blockquote>
+            <cite class="feedback-author">Terezinha, <span>Paciente</span></cite>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>© <span id="year"></span> - Ketlin Cristina Cicheleiro</p>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    window.addEventListener('scroll', function() {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+</script>
+
+</body>
+</html>
